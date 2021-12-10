@@ -15,7 +15,7 @@ import {
   SessionStrategy,
 } from '@keystone-next/keystone/types';
 import { statelessSessions } from '@keystone-next/keystone/session';
-import { insertSeedData } from './seed-data/index';
+// import { insertSeedData } from './seed-data/index';
 import { postgresql } from '@keystone-next/keystone/dist/declarations/src/types/filters';
 import { extendGraphqlSchema } from './mutations';
 import { sendPasswordResetEmail } from './lib/mail';
