@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { Button, Menu, Space } from 'antd';
+import { Button, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { CURRENT_USER_QUERY, useUser } from './User.js';
 import { gql } from "graphql-tag";
 import { useMutation } from "@apollo/client";
 import router from "next/router";
 import { useCart } from "../lib/cartState.js";
-import CartCount from "./CartCount.js";
 
 const SIGN_OUT_MUTATION = gql`
   mutation {
