@@ -19,12 +19,12 @@ function createClient({ headers, initialState }) {
           console.log(
             `[Network error]: ${networkError}. Backend is unreachable. Is it running?`
           )
-          console.log(headers)
+          console.log(process.env.NODE_ENV)
         };
       }),
       // this uses apollo-link-http under the hood, so all the options here come from that package
       createUploadLink({
-        uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,
+        uri: process.env.NODE_ENV === 'development' ? prodEndpoint : endpoint,
         fetchOptions: {
           credentials: 'include',
         },
