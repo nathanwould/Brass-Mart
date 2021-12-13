@@ -17,7 +17,7 @@ export default function InstrumentCategories() {
       flexDirection: "column",
       // justifyContent: "space-evenly",
       width: '60%',
-      margin: "0 auto 5vh"
+      // margin: "0 auto 5vh"
     }}
     >
       <h2>Shop Instruments By Category:</h2>

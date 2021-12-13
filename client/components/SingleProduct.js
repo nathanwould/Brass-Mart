@@ -70,27 +70,30 @@ export default function SingleProduct({ id }) {
           <Title>{product.name}</Title>
           <Space wrap>
             <Carousel
+              className="single-product-carousel"
               arrows={true}
               prevArrow={<LeftOutlined id="left-arrow"/>}
-              nextArrow={<RightOutlined id="right-arrow"/>}
-              style={{
-                height: "50vh",
-                width: "75vh",
-              }}
+              nextArrow={<RightOutlined id="right-arrow" />}
+              // style={{
+              //   height: "50vh",
+              //   width: "75vh",
+              //   maxWidth: '100%'
+              // }}
             >
               {product.photos.map((photo, index) => (
-                <div key={index}
-                >
+                // <div key={index}>
                   <Image
+                  className="single-product-image"
+                  key={index}
                     alt={photo.image.alt}
                     src={photo.image.publicUrlTransformed}
                     style={{
                       height: "50vh",
                       width: "80vh",
-                      objectFit: "cover"
+                      objectFit: "cover",
                     }}
                   />
-                </div>
+                // </div>
               ))}
             </Carousel>
             <Space

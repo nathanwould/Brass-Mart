@@ -58,10 +58,27 @@ a {
   height: 30px;
 }
 
+@media only screen and (min-width: 800px) {
+  .single-product-carousel {
+    height: 50vh;
+    width: 75vh;
+    max-width: 100%;
+  }
+}
 @media only screen and (max-width: 800px) {
   .category-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(43vh, .5fr));
+  }
+  .slick-slider {
+    max-width: 100%;
+  }
+  .ant-carousel {
+    max-width: 40vh;
+    height: 30vh;
+  }
+  .single-product-image {
+    max-height: 30vh;
   }
 }
 
