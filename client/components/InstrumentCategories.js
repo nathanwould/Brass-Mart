@@ -15,69 +15,69 @@ export default function InstrumentCategories() {
       style={{
       display: 'flex',
       flexDirection: "column",
-      // justifyContent: "space-evenly",
-      width: '60%',
-      // margin: "0 auto 5vh"
     }}
     >
       <h2>Shop Instruments By Category:</h2>
-      <div style={{
+      <div
+        className="category-buttons"
+        style={{
         marginTop: "2vh",
         display: "flex",
-        justifyContent: "space-between"
+        margin: "1rem 0 2rem"
       }}>
       <a
           className=""
           href='/instruments/trumpets'
-          style={{background: 'white' }}
         >
-      <Card hoverable >
+          <Card
+            hoverable
+            className="category-card">
         <Card.Meta title="Trumpets" style={{textAlign: 'center'}} />
       </Card>
       </a>
       <a
           className=""
           href='/instruments/horns'
-          style={{background: 'white' }}
-        >
-      <Card
-        hoverable
       >
-        <Card.Meta title="Horns" style={{textAlign: 'center'}} />
-      </Card>
+        <Card
+          hoverable
+          className="category-card"
+        >
+          <Card.Meta title="Horns" style={{textAlign: 'center'}} />
+        </Card>
       </a>
       <a
           className=""
           href='/instruments/trombones'
-          style={{background: 'white' }}
-        >
-      <Card
-        hoverable
       >
-        <Card.Meta title="Trombones" style={{textAlign: 'center'}} />
-      </Card>
+        <Card
+          hoverable
+          className="category-card"
+        >
+          <Card.Meta title="Trombones" style={{textAlign: 'center'}} />
+        </Card>
       </a>
       <a
           className=""
           href='/instruments/euphoniums'
-          style={{background: 'white' }}
-        >
-      <Card
-        hoverable
       >
-        <Card.Meta title="Euphoniums" style={{textAlign: 'center'}} />
-      </Card>
+        <Card
+          hoverable
+          className="category-card"
+        >
+          <Card.Meta title="Euphoniums" style={{textAlign: 'center'}} />
+        </Card>
       </a>
       <a
           className=""
           href='/instruments/tubas'
-          style={{background: 'white' }}
-        >
-      <Card
-        hoverable
       >
-        <Card.Meta title="Tubas" style={{textAlign: 'center'}} />
-      </Card>
+        <Card
+            hoverable
+            className="category-card"
+        >
+          <Card.Meta title="Tubas" style={{textAlign: 'center'}} />
+        </Card>
         </a>
         </div>
     </div>

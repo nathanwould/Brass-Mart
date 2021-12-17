@@ -12,8 +12,9 @@ export default function InstrumentCard({ product }) {
       <Card
       hoverable
         style={{
-          width: '40vh',
-          marginBottom: '2vh'
+          width: '20rem',
+          marginBottom: '1rem',
+          marginRight: '1rem',
         }}
         cover={
           <a href={`/instrument/${id}`}>
@@ -22,7 +23,7 @@ export default function InstrumentCard({ product }) {
               src={image.publicUrlTransformed}
               style={{
                 width: '100%',
-                height: '30vh',
+                height: '15rem',
                 objectFit: 'cover'
               }}
               />

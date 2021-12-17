@@ -43,19 +43,45 @@ a {
 }
 
 #left-arrow {
-  left: 10px;
+  left: .5rem;
   z-index: 2;
   color: white;
-  font-size: 20px;
+  font-size: 1.5rem;
   height: 10vh;
 }
 
 #right-arrow {
-  right: 10px;
+  right: .5rem;
   z-index: 2;
   color: white;
-  font-size: 20px;
-  height: 30px;
+  font-size: 1.5rem;
+  height: 10vh;
+}
+
+.category-buttons a {
+  margin-right: .2rem;
+}
+
+.ant-card-body {
+  padding: 1rem 2rem !important;
+}
+
+.category-buttons a div .ant-card-body {
+  padding: 1rem;
+}
+
+.ant-skeleton-element {
+  width: 100% !important;
+}
+
+.skeleton-card {
+  width: 20rem;
+  margin-bottom: 2rem;
+}
+
+.ant-skeleton-image {
+  width: 100% !important;
+  height: 15rem !important;
 }
 
 @media only screen and (min-width: 800px) {

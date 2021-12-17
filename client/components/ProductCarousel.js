@@ -8,7 +8,7 @@ export default function ProductCarousel({ products }) {
     <div style={{
       textAlign: 'center'
     }}>
-      <h2 style={{marginRight: '10vh'}}>Recently Added Instruments:</h2>
+      <h2 style={{marginRight: '8rem'}}>Recently Added Instruments:</h2>
       <Carousel
         autoplay
         arrows
@@ -17,7 +17,7 @@ export default function ProductCarousel({ products }) {
         autoplaySpeed="60"
         align="center"
         style={{
-          width: '50vh',
+          width: '25rem',
           margin: "0 auto",
         }}
       >
@@ -25,31 +25,30 @@ export default function ProductCarousel({ products }) {
           const { id, name, photos, price } = product;
           return (
             <a href={`/instrument/${id}`}>
-            <Card
-              key={id}
-              cover={
-                <img
-                  alt={name}
-                  src={photos[0].image.publicUrlTransformed}
-                  style={{
-                    width: '100%',
-                    height: '30vh',
-                    objectFit: 'cover'
-                  }}
-                />
-            }>
-              <h2>{name}</h2>
-              <p style={{
-                textDecoration: 'none',
-                color: 'black'
-              }}
-              >{formatMoney(price)}</p>
-            </Card>
-              </a>
-            
+              <Card
+                key={id}
+                cover={
+                  <img
+                    alt={name}
+                    src={photos[0].image.publicUrlTransformed}
+                    style={{
+                      width: '100%',
+                      height: '15rem',
+                      objectFit: 'cover'
+                    }}
+                  />
+              }>
+                <h2>{name}</h2>
+                <p style={{
+                  textDecoration: 'none',
+                  color: 'black',
+                  marginBottom: "2rem"
+                }}
+                >{formatMoney(price)}</p>
+              </Card>
+            </a>
           )
-        }
-        )}
+        })}
       </Carousel>
     </div>
   )

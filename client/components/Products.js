@@ -8,8 +8,10 @@ export default function Products({ products }) {
       className='products-div'
       style={{
         margin: '0',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(43vh, .5fr))'
+        width: "100%",
+        display: 'flex',
+        flexWrap: "wrap",
+        // gridTemplateColumns: 'repeat(auto-fit, minmax(43vh, .5fr))'
       }}
     >
       {products.map((product) =>
