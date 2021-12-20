@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types';
-import { Layout, Space, Menu, Anchor, BackTop } from 'antd';
+import { Layout, Space, Menu, BackTop } from 'antd';
 import Header from './Header';
 import { GithubOutlined, LinkedinOutlined, InstagramOutlined } from '@ant-design/icons';
 
 export default function Page({ children }) {
   const { Footer } = Layout;
-  const { Link } = Anchor;
   return (
       <Layout className="layout">
       <Header Layout={Layout} />
       <div style={{
-        height: "20vh",
+        height: "10rem",
         width: "100%",
         backgroundImage: `url("https://res.cloudinary.com/dkyy9wjvs/image/upload/v1637184051/dsc_0383_brtvxm.jpg")`
       }} />
@@ -19,15 +18,17 @@ export default function Page({ children }) {
         </div>
       <Footer
         style={{
-          background: "white"
+          background: "white",
+          padding: "1.5rem 1rem"
         }}
       >
         <Menu mode="horizontal"
           style={{
-            border: "none"
+            border: "none",
+            marginBottom: "1rem",
           }}
         >
-          <Menu.Item key="footer-home">
+          <Menu.Item key="footer-home" style={{paddingLeft: "1rem"}}>
             <a href="/">Home</a>
           </Menu.Item>
           <Menu.Item key="footer-about">

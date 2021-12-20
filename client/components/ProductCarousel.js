@@ -21,34 +21,33 @@ export default function ProductCarousel({ products }) {
           margin: "0 auto",
         }}
       >
-        {products.map((product) => {
-          const { id, name, photos, price } = product;
-          return (
-            <a href={`/instrument/${id}`}>
+        {products.map((product, idx) =>
+          idx < 6 ? 
+            <a href={`/instrument/${product.id}`}>
               <Card
-                key={id}
+                key={product.id}
                 cover={
                   <img
-                    alt={name}
-                    src={photos[0].image.publicUrlTransformed}
+                    alt={product.name}
+                    src={product.photos[0].image.publicUrlTransformed}
                     style={{
                       width: '100%',
                       height: '15rem',
                       objectFit: 'cover'
                     }}
                   />
-              }>
-                <h2>{name}</h2>
+                }>
+                <h2>{product.name}</h2>
                 <p style={{
                   textDecoration: 'none',
                   color: 'black',
                   marginBottom: "2rem"
                 }}
-                >{formatMoney(price)}</p>
+                >{formatMoney(product.price)}</p>
               </Card>
             </a>
-          )
-        })}
+            : null
+        )}
       </Carousel>
     </div>
   )

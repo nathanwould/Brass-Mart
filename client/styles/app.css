@@ -84,6 +84,17 @@ a {
   height: 15rem !important;
 }
 
+.ant-list-items {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.ant-list-pagination {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
 @media only screen and (min-width: 800px) {
   .single-product-carousel {
     height: 50vh;
@@ -95,6 +106,10 @@ a {
   .category-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(43vh, .5fr));
+  }
+  .category-buttons {
+    flex-direction: column;
+    width: 40%;
   }
   .slick-slider {
     max-width: 100%;
