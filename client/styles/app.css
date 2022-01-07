@@ -67,7 +67,7 @@ a {
 }
 
 .category-buttons a div .ant-card-body {
-  padding: 1rem;
+  padding: 1rem !important;
 }
 
 .ant-skeleton-element {
@@ -87,11 +87,11 @@ a {
 .ant-list-items {
   display: flex;
   flex-flow: row wrap;
+  /* justify-content: space-evenly; */
 }
 
 .ant-list-pagination {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
 }
 

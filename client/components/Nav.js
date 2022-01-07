@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Button, Menu } from 'antd';
+import { Button, Menu, Typography } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { CURRENT_USER_QUERY, useUser } from './User.js';
 import { gql } from "graphql-tag";
@@ -17,6 +16,7 @@ export default function Nav({ Layout }) {
   const user = useUser();
   const { openCart } = useCart();
   const { SubMenu } = Menu;
+  const { Link } = Typography;
   const [signout] = useMutation(SIGN_OUT_MUTATION, {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
     },
@@ -48,13 +48,8 @@ export default function Nav({ Layout }) {
         </Menu.Item>
       </SubMenu>
       <Menu.Item key='about'>
-        <Link href="/about">
+        <Link href="https://www.nathanwould.com" target="_blank">
           About
-        </Link>
-      </Menu.Item>
-      <Menu.Item key='contact'>
-        <Link href="/contact">
-          Contact Us
         </Link>
       </Menu.Item>
       {user && (
@@ -75,11 +70,6 @@ export default function Nav({ Layout }) {
           </Menu.Item>
           <Menu.Item key="sign-out-button">
           <Button
-          //   style={{
-          //     position: "absolute",
-          //     right: '2vh',
-          //     top: '2vh'
-          // }}
               onClick={(e) => {
                 signout()
                 router.push({

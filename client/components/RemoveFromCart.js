@@ -1,6 +1,7 @@
 import { useMutation } from '@apollo/client';
 import { Button } from 'antd';
 import gql from 'graphql-tag';
+import { useUser } from './User';
 
 const REMOVE_FROM_CART_MUTATION = gql`
   mutation REMOVE_FROM_CART_MUTATION($id: ID!) {
@@ -11,7 +12,7 @@ const REMOVE_FROM_CART_MUTATION = gql`
 `;
 
 function update(cache, payload) {
-  cache.evict(cache.identify(payload.data.deleteCartItem))
+  cache.evict(cache.identify(payload.data.deleteCartItem));
 };
 
 export default function RemoveFromCart({ id }) {
@@ -19,6 +20,7 @@ export default function RemoveFromCart({ id }) {
     variables: { id },
     update,
   })
+  const user = useUser();
   return (
     <Button
       title="Remove From Cart"

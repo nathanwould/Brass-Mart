@@ -9,7 +9,7 @@ export default function Cart() {
   const user = useUser();
   const { cartOpen, closeCart } = useCart();
   const { Content, Footer } = Layout;
-  // console.log(user.cart)
+
   return (
     <Drawer
       title={`${user?.name}'s Cart`}
@@ -22,7 +22,10 @@ export default function Cart() {
         overflow: "scroll"
       }}>
         {user?.cart?.map(cartItem => (
-          <CartItem key={cartItem.id} cartItem={cartItem} product={cartItem.product} />
+          <CartItem
+            key={cartItem.id}
+            cartItem={cartItem}
+            product={cartItem.product} />
         ))
         }
       </Content>

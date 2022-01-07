@@ -9,6 +9,7 @@ export default function Orders({ user }) {
       title: 'Order #',
       dataIndex: 'id',
       key: '',
+      render: id => <a href={`/order/${id}`}>{id}</a>
     },
     {
       title: 'Items',

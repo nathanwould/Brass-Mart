@@ -95,7 +95,12 @@ function PaymentForm() {
       >
         <CardElement />
       </div>
-      <button type="submit">Place Order</button>
+      <button
+        type="submit"
+        className="ant-btn ant-btn-primary ant-btn-dangerous"
+      >
+        Place Order
+      </button>
     </form>
   )
 }

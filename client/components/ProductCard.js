@@ -35,7 +35,8 @@ export default function InstrumentCard({ product }) {
             <h2>{name}</h2>
             <p style={{
               textDecoration: 'none',
-              color: 'black'
+              color: 'black',
+              marginBottom: "0",
             }}
             >{formatMoney(price)}</p>
         </a>

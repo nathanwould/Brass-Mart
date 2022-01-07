@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
-import { Layout, Space } from "antd";
+import { Layout, Space, Table } from "antd";
 import formatMoney from "../lib/formatMoney";
 
 const SINGLE_ORDER_QUERY = gql`
@@ -14,6 +14,7 @@ const SINGLE_ORDER_QUERY = gql`
         name
         price
         photos {
+          altText
           image {
             publicUrlTransformed
           }
@@ -29,13 +30,37 @@ export default function OrderDetails({ id }) {
       id,
     },
   })
-  const order = data?.order
+  const orderItems = data?.order?.items
   const { Content } = Layout;
-  console.log(order)
-  if (!order) return <p>Loading...</p>
+  const columns = [
+    {
+      dataIndex: 'photos',
+      key: 'photo',
+      render: photos =>
+        <img
+          alt={photos[0].alt}
+          src={photos[0].image.publicUrlTransformed}
+          style={{width: "6rem"}}
+        />
+    },
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Price',
+      dataIndex: 'price',
+      key: 'price',
+      render: price => formatMoney(price)
+    },
+  ]
+  console.log(data)
   return (
     <>
-        <h1>Order #{id}</h1>
+      {loading && <p>Loading...</p>}
+      {/* <h1>Order #{id}</h1> */}
+      {data?.order &&
         <Space
           direction="vertical"
           style={{
@@ -43,7 +68,7 @@ export default function OrderDetails({ id }) {
             borderRadius: "2%",
           }}
         >
-        {order?.items?.map(item => (
+          {/* {order?.items?.map(item => (
           <Space
             key={item.id}
             align="center"
@@ -61,15 +86,17 @@ export default function OrderDetails({ id }) {
           <p>{item.name}</p>
           <p>{formatMoney(item.price)}</p>
         </Space>
-        ))}
-        <p style={{
-          margin: "1vh",
-          fontWeight: "bold"
-        }}
-        >
-          Total: {formatMoney(order.total)}
-        </p>
+        ))} */}
+        <Table columns={columns} dataSource={orderItems} pagination={false}/>
+          <p style={{
+            marginLeft: "1rem",
+            fontWeight: "bold"
+          }}
+          >
+            Total: {formatMoney(data.order.total)}
+          </p>
         </Space>
+      }
     </>
   )
 }

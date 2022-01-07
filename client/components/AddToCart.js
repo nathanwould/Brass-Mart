@@ -18,21 +18,35 @@ export default function AddToCart({ id }) {
     variables: { id },
     refetchQueries: [{ query: CURRENT_USER_QUERY }]
   });
-  return (
-    <>
-      {added ?
-        <Button
-          disabled
-          type="button">
-          Added To Cart
-        </Button>
-        : <Button
-          type="button"
-          onClick={addToCart}
-          id={id}>
-          {`Add${loading ? 'ing' : ''} To Cart 🛒`}
-        </Button>
-      }
-    </>
-  );
+  if (user) {
+    return (
+      <>
+        {added ?
+          <Button
+            disabled
+            type="button">
+            Added To Cart
+          </Button>
+          : <Button
+            type="button"
+            onClick={addToCart}
+            id={id}>
+            {`Add${loading ? 'ing' : ''} To Cart 🛒`}
+          </Button>
+        }
+      </>
+    )
+  }
+  else {
+    return (
+      <>
+        <a
+          class="ant-btn ant-btn-button"
+          href="/signin"
+        >
+          Add To Cart
+        </a>
+      </>
+    )
+  };
 }
