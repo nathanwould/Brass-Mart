@@ -25,7 +25,7 @@ export default function ProductCarousel({ products }) {
           idx < 6 ? 
             <a href={`/instrument/${product.id}`}>
               <Card
-                key={product.id}
+                key={idx}
                 cover={
                   <img
                     alt={product.name}

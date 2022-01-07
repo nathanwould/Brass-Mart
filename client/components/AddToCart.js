@@ -44,7 +44,7 @@ export default function AddToCart({ id }) {
           class="ant-btn ant-btn-button"
           href="/signin"
         >
-          Add To Cart
+          Add To Cart 🛒
         </a>
       </>
     )

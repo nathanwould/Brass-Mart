@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { gql } from "graphql-tag";
 import { Button, Form, Input } from 'antd';
-import { CURRENT_USER_QUERY } from "./User";
+import { CURRENT_USER_QUERY, useUser } from "./User";
 import React from "react";
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import router from "next/router";
@@ -29,6 +29,12 @@ export default function SignIn() {
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   }
+  const user = useUser();
+  const error =
+    data?.authenticateUserWithPassword.__typename ===
+    'UserAuthenticationWithPasswordFailure'
+      ? data?.authenticateUserWithPassword
+      : undefined;
   return (
     <div className="form-div"
       style={{
@@ -39,22 +45,17 @@ export default function SignIn() {
         alignItems: "center",
       }}
     >
-      <h2>Sign In</h2>
+      {user ? <h2>Welcome, {user.name}</h2> : <h2>Sign In</h2>}
       <Form
         ref={formRef}
         size="middle"
         name='control-ref'
-        // labelCol={{ span: 8 }}
-        // wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
         onFinish={(values) => {
           signin({
             variables: values,
             refetchQueries: [{ query: CURRENT_USER_QUERY }],
           });
-          router.push({
-            pathname: '/'
-          })
         }}
         onFinishFailed={onFinishFailed}
         style={{
@@ -62,7 +63,7 @@ export default function SignIn() {
           textAlign: 'center'
         }}
       >
-        {/* <Form.Item>{error}</Form.Item> */}
+        {error && <Form.Item>{error}</Form.Item>}
         <Form.Item
           name="email"
           rules={[
@@ -77,6 +78,7 @@ export default function SignIn() {
             type="email"
             placeholder="Your Email Address"
             autoComplete="email"
+            disabled={user}
           />
         </Form.Item>
         <Form.Item
@@ -93,6 +95,7 @@ export default function SignIn() {
             type="password"
             placeholder="Password"
             autoComplete="password"
+            disabled={user}
           />
         </Form.Item>
         <a className="login-form-forgot" href="/reset">
@@ -103,6 +106,7 @@ export default function SignIn() {
             type="primary"
             htmlType="submit"
             className="login-form-button"
+            disabled={user}
             style={{
               width: "100%"
             }}

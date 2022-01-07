@@ -8,7 +8,7 @@ import {
 import { useState } from "react";
 import nProgress from 'nprogress';
 import { useRouter } from 'next/dist/client/router';
-import { Button, Form } from 'antd';
+import { Popover } from 'antd';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { CURRENT_USER_QUERY } from './User';
@@ -85,16 +85,18 @@ function PaymentForm() {
     >
         {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
         {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
-      <div
-        style={{
-          background: "white",
-          padding: "2vh",
-          borderRadius: "2%",
-          marginBottom: "2vh"
-        }}
-      >
-        <CardElement />
-      </div>
+      <Popover content="Please use: 4242 4242 4242 4242 02/22 222" title="Wait!">
+        <div
+          style={{
+            background: "white",
+            padding: "2vh",
+            borderRadius: "2%",
+            marginBottom: "2vh"
+          }}
+        >
+          <CardElement />
+        </div>
+      </Popover>
       <button
         type="submit"
         className="ant-btn ant-btn-primary ant-btn-dangerous"
