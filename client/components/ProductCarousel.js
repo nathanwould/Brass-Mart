@@ -3,7 +3,6 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import formatMoney from '../lib/formatMoney';
 
 export default function ProductCarousel({ products }) {
-  console.log(products)
   return (
     <div style={{
       textAlign: 'center'

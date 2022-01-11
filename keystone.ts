@@ -6,6 +6,7 @@ import { ProductImage } from './schemas/ProductImage';
 import { CartItem } from './schemas/CartItem';
 import { OrderItem } from './schemas/OrderItem';
 import { Order } from './schemas/Order';
+import { Role } from './schemas/Role';
 import { config } from '@keystone-next/keystone';
 import {
   DatabaseConfig,
@@ -19,6 +20,7 @@ import { statelessSessions } from '@keystone-next/keystone/session';
 import { postgresql } from '@keystone-next/keystone/dist/declarations/src/types/filters';
 import { extendGraphqlSchema } from './mutations';
 import { sendPasswordResetEmail } from './lib/mail';
+import { permissionsList } from './schemas/fields';
 
 
 const databaseURL = process.env.DATABASE_URL || 'postgres://admin:adminpassword@localhost/brassmart';
@@ -36,7 +38,7 @@ const { withAuth } = createAuth({
     fields: ['name', 'email', 'password'],
     // TODO: add in intial roles
   },
-  sessionData: 'id, name, email',
+  sessionData: `id, name, email, role, { ${permissionsList.join(' ')} }`,
   passwordResetLink: {
     async sendToken(args) {
       await sendPasswordResetEmail(args.token, args.identity)
@@ -70,6 +72,7 @@ export default withAuth(
       CartItem,
       OrderItem,
       Order,
+      Role,
     }),
     extendGraphqlSchema,
     ui: {

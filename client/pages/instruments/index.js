@@ -3,7 +3,6 @@ import gql from "graphql-tag";
 import Products from "../../components/Products";
 import { Layout, Breadcrumb, Skeleton, Card } from "antd";
 import InstrumentCategories from "../../components/InstrumentCategories";
-// import ProductCarousel from "../../components/ProductCarousel";
 
 export const ALL_INSTRUMENTS_QUERY = gql`
   query ALL_INSTRUMENTS_QUERY {

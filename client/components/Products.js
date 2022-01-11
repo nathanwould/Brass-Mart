@@ -2,7 +2,6 @@ import { Pagination, List } from "antd";
 import ProductCard from "./ProductCard"
 
 export default function Products({ products }) {
-
   return (
       <List
         dataSource={products}

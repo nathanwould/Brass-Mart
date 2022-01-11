@@ -4,7 +4,7 @@ import { Button, Form, Input } from 'antd';
 import { CURRENT_USER_QUERY, useUser } from "./User";
 import React from "react";
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import router from "next/router";
+import { useRouter} from "next/router";
 
 const SIGN_IN_MUTATION = gql`
   mutation SIGN_IN_MUTATION($email: String!, $password: String!) {
@@ -30,6 +30,7 @@ export default function SignIn() {
     console.log('Failed:', errorInfo);
   }
   const user = useUser();
+  const router = useRouter();
   const error =
     data?.authenticateUserWithPassword.__typename ===
     'UserAuthenticationWithPasswordFailure'
@@ -51,11 +52,15 @@ export default function SignIn() {
         size="middle"
         name='control-ref'
         initialValues={{ remember: true }}
-        onFinish={(values) => {
-          signin({
+        onFinish={async (values) => {
+          const res = await signin({
             variables: values,
             refetchQueries: [{ query: CURRENT_USER_QUERY }],
           });
+          console.log(res)
+          res?.data?.authenticateUserWithPassword ?
+            router.push('/') :
+            console.log(res.data);
         }}
         onFinishFailed={onFinishFailed}
         style={{

@@ -1,9 +1,15 @@
 import { text, integer, select, relationship, float } from "@keystone-next/keystone/fields";
 import { list } from "@keystone-next/keystone";
+import { rules } from "../access";
 
 export const Product = list({
   // TODO:
-  // access:
+  access: {
+    create: rules.canManageProducts,
+    read: rules.canReadProducts,
+    update: rules.canManageProducts,
+    delete: rules.canManageProducts,
+  },
   fields: {
     productType: select({
       options: [
