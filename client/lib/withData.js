@@ -29,7 +29,7 @@ function createClient({ headers, initialState }) {
           credentials: 'include',
         },
         // pass the headers along from this request. This enables SSR with logged in state
-        // headers,
+        headers,
       }),
     ]),
     cache: new InMemoryCache({
