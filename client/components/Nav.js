@@ -5,6 +5,7 @@ import { gql } from "graphql-tag";
 import { useMutation } from "@apollo/client";
 import router from "next/router";
 import { useCart } from "../lib/cartState.js";
+import Link from 'next/link';
 
 const SIGN_OUT_MUTATION = gql`
   mutation {
@@ -16,7 +17,7 @@ export default function Nav({ Layout }) {
   const user = useUser();
   const { openCart } = useCart();
   const { SubMenu } = Menu;
-  const { Link } = Typography;
+  // const { Link } = Typography;
   const [signout] = useMutation(SIGN_OUT_MUTATION, {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
     },

@@ -58,7 +58,7 @@ export default function SignIn() {
             refetchQueries: [{ query: CURRENT_USER_QUERY }],
           });
           console.log(res)
-          res?.data?.authenticateUserWithPassword ?
+          res?.data?.authenticateUserWithPassword.__typename === 'UserAuthenticationWithPasswordSuccess' ?
             router.push('/') :
             console.log(res.data);
         }}
