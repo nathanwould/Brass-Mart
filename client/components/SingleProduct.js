@@ -41,7 +41,6 @@ export default function SingleProduct({ id }) {
     },
   });
   const product = data?.product;
-  console.log(product)
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>
   const categoryLink = product?.productType === "instrument" ? "instruments" : "accessories";
@@ -74,26 +73,19 @@ export default function SingleProduct({ id }) {
               arrows={true}
               prevArrow={<LeftOutlined id="left-arrow"/>}
               nextArrow={<RightOutlined id="right-arrow" />}
-              // style={{
-              //   height: "50vh",
-              //   width: "75vh",
-              //   maxWidth: '100%'
-              // }}
             >
               {product.photos.map((photo, index) => (
-                // <div key={index}>
-                  <Image
-                  className="single-product-image"
-                  key={index}
-                    alt={photo.image.alt}
-                    src={photo.image.publicUrlTransformed}
-                    style={{
-                      height: "50vh",
-                      width: "80vh",
-                      objectFit: "cover",
-                    }}
-                  />
-                // </div>
+                <Image
+                className="single-product-image"
+                key={index}
+                  alt={photo.image.alt}
+                  src={photo.image.publicUrlTransformed}
+                  style={{
+                    height: "50vh",
+                    width: "80vh",
+                    objectFit: "cover",
+                  }}
+                />
               ))}
             </Carousel>
             <Space

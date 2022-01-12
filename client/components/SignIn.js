@@ -60,7 +60,7 @@ export default function SignIn() {
           console.log(res)
           res?.data?.authenticateUserWithPassword.__typename === 'UserAuthenticationWithPasswordSuccess' ?
             router.push('/') :
-            console.log(res.data);
+            console.log(res);
         }}
         onFinishFailed={onFinishFailed}
         style={{

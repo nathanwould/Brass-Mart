@@ -2,26 +2,26 @@ import { Button, Menu, Typography } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { CURRENT_USER_QUERY, useUser } from './User.js';
 import { gql } from "graphql-tag";
-import { useMutation } from "@apollo/client";
-import router from "next/router";
+// import { useMutation } from "@apollo/client";
 import { useCart } from "../lib/cartState.js";
 import Link from 'next/link';
+import { SignOut } from './SignOut';
 
-const SIGN_OUT_MUTATION = gql`
-  mutation {
-    endSession
-  }
-`;
+// const SIGN_OUT_MUTATION = gql`
+//   mutation {
+//     endSession
+//   }
+// `;
 
 export default function Nav({ Layout }) {
   const user = useUser();
   const { openCart } = useCart();
   const { SubMenu } = Menu;
   // const { Link } = Typography;
-  const [signout] = useMutation(SIGN_OUT_MUTATION, {
-    refetchQueries: [{ query: CURRENT_USER_QUERY }],
-    },
-  )
+  // const [signout] = useMutation(SIGN_OUT_MUTATION, {
+  //   refetchQueries: [{ query: CURRENT_USER_QUERY }],
+  // },
+  // );
   let cartCount = user?.cart?.reduce(
     (tally, cartItem) =>
       tally + (cartItem.product ? cartItem.quantity : 0),
@@ -70,15 +70,8 @@ export default function Nav({ Layout }) {
             </Button>
           </Menu.Item>
           <Menu.Item key="sign-out-button">
-          <Button
-              onClick={(e) => {
-                signout()
-                router.push({
-                  pathname: '/'
-                })
-              }} >
-              Sign Out
-          </Button>
+            <SignOut />
+            {/* Sign Out */}
           </Menu.Item>
         </>
       )}
