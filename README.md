@@ -57,33 +57,15 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 <br>
 
+
+### Database (Back End)
+
+#### ERD Model
+
+
+<br>
+
 ### Client (Front End)
-
-#### Wireframes
-
-- Landing
-
-![Landing Login Page](https://i.imgur.com/yjCcnE1.png)
-
-- New Employee Registration
-
-![Employee Registration](https://i.imgur.com/xpVnOwi.png)
-
-
-- Movies
-
-![Movies](https://i.imgur.com/zhOUpag.png)
-
-
-- Movie Details
-
-![Movie Details](https://i.imgur.com/cqueNZo.png)
-
-
-- Movie Add/Edit
-
-![Movie Form](https://i.imgur.com/PWztJ2G.png)
-
 
 
 #### Component Tree
@@ -95,13 +77,6 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 
 
-
-### Database (Back End)
-
-#### ERD Model
-
-
-<br>
 
 ***
 
