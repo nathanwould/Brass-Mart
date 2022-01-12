@@ -57,6 +57,38 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 <br>
 
+### Rationale
+
+As mentioned above, one of my biggest questions was how to hand off a finished project to a non-technical client and have them be able to easily modify content, like in the case of products in an ecommerce platform. Fortunately, the Wes Bos Advanced React course (https://advancedreact.com/) was incredibly helpful in helping me answer this question. 
+
+Once I completed the course I decided to create this project with the additional goal of updating the tech stack to use the most recent stable versions of everything available. By far the most significant change was in updating for Keystone 6 (Keystone 5 is used in the course) and I had to make some pretty substantial changes to cross over.
+
+One of the biggest changes was that Keystone 6 deprecated support for MongoDB and now only uses Prisma on top of either a MySQL or PostgresQL database. 
+
+While many changed were relatively quick and intuitive changes after the initial setup, much of the Keystone documentation had not been updated for version 6 and I was frequently greeted by "Coming soon!" when looking something up in the documentation. 
+
+Another major change was in the required syntax for many built-in Keystone methods. For example, in my custom mutation for adding an item to the user's cart, first the current user's cart is queried which uses this syntax for the findMany method in Keystone 5:
+
+```
+// the id variable can be passed a value and will check for equality
+const allCartItems = await context.lists.CartItem.findMany({
+    where: { user: { id: sesh.itemId }, product: { id: productId } },
+    resolveFields: 'id,quantity'
+  });
+
+```
+
+Where as in Keystone 6:
+
+```
+// the id variable must now always be passed an object with an operator and the value
+const allCartItems = await context.db.CartItem.findMany({
+          where: { user: { id: {equals: sesh.itemId} }, product: { id: {equals: productId} } },
+        });
+
+```
+
+This was an easy fix and highlights some easy ways to add functionality with custom mutations, for example making them automatically case-insensitive by replacing the 'equals' operator with 'like'.
 
 ### Database (Back End)
 
@@ -66,6 +98,8 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 <br>
 
 #### Functionality
+
+The focal point of this application is the Keystone 6 Admin UI
 
 <br>
 
