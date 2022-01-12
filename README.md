@@ -57,7 +57,9 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 <br>
 
-### Rationale
+### Database (Back End)
+
+#### Rationale
 
 As mentioned above, one of my biggest questions was how to hand off a finished project to a non-technical client and have them be able to easily modify content, like in the case of products in an ecommerce platform. Fortunately, the Wes Bos Advanced React course (https://advancedreact.com/) was incredibly helpful in helping me answer this question. 
 
@@ -88,18 +90,21 @@ const allCartItems = await context.db.CartItem.findMany({
 
 ```
 
-This was an easy fix and highlights some easy ways to add functionality with custom mutations, for example making them automatically case-insensitive by replacing the 'equals' operator with 'like'.
-
-### Database (Back End)
-
-#### ERD Model
-
-
-<br>
+This was an easy fix and highlights some easy ways to add functionality with custom mutations, for example making them automatically case-insensitive by replacing the 'equals' operator with 'like'. In the end, all of these changes have helped my understanding of how Keystone works by giving me plenty of changes to troubleshoot.
 
 #### Functionality
 
-The focal point of this application is the Keystone 6 Admin UI
+The end result has been perfectly aligned with my goal of a database accessible to someone with no technical experience as pictured below:
+
+[Imgur](https://i.imgur.com/tY3bw8cm.png)
+
+[Imgur](https://i.imgur.com/h2FDhAhm.png)
+
+[Imgur](https://i.imgur.com/8VdAGorm.png)
+<br>
+
+#### ERD Model
+
 
 <br>
 
