@@ -96,11 +96,14 @@ This was an easy fix and highlights some easy ways to add functionality with cus
 
 The end result has been perfectly aligned with my goal of a database accessible to someone with no technical experience as pictured below:
 
-[Imgur](https://i.imgur.com/tY3bw8cm.png)
+Instead of json, the database looks looks like this after login.
+![Admin UI Dashboard](https://i.imgur.com/tY3bw8cm.png)
 
-[Imgur](https://i.imgur.com/h2FDhAhm.png)
+Products can be created or modified directly within the GUI and handles associations.
+![Product Creation](https://i.imgur.com/h2FDhAhm.png)
 
-[Imgur](https://i.imgur.com/8VdAGorm.png)
+Users can view all entries in any given table and filter by any property.
+![View All Orders](https://i.imgur.com/8VdAGorm.png)
 <br>
 
 #### ERD Model
