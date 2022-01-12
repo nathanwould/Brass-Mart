@@ -90,57 +90,17 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 >Front-end application structure:
 
-[Component Tree](https://i.imgur.com/lCoL3bA.png)
 
 #### Component Architecture
 
-``` structure
 
-src
-|__ components/
-      |__ Movie.jsx
-|__ containers/
-      |__ MovieContainer.jsx
-|__ layout/
-      |__ Header.jsx
-      |__ Layout.jsx
-|__ screens/
-      |__ Login.jsx
-      |__ Movies.jsx
-      |__ MovieDetails.jsx
-      |__ AddMovie.jsx
-      |__ EditMovie.jsx
-|__ services/
-       |__ api-config.js
-       |__ auth.js
-       |__ search.js
 
-```
 
-#### Time Estimates
-
-| Component | Priority | Estimated Time | Actual Time |
-|---|---|---|---|
-| Rails DB creation |   H   | 2hr |   |
-| Creating Models and Schema |    H  | 2hrs | 
-| Seeding DB Data | H | 4hrs |
-| Testing DB Routes | H | 2hrs | 
-| Creating Front-End Application | H | 1hrs | 
-| Front-End File Structure | H | 4hrs |	
-| Integrating Back and Front Ends | H | 4hrs | 
-| Front-End Full Crud | H | 2hrs |
-| Testing Front-End | H | 2hrs |
-| Seeding Inventory with as many movies as possible | H | 6hrs |
-| CSS Styling | L | 6hrs | 
-|Total|	- | 35hrs |
-
-<br>
-
-### Server (Back End)
+### Database (Back End)
 
 #### ERD Model
 
-[ERD Sample](https://i.imgur.com/0ukANAF.png)
+
 <br>
 
 ***
