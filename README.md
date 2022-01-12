@@ -65,6 +65,10 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 <br>
 
+#### Functionality
+
+<br>
+
 ### Client (Front End)
 
 
@@ -82,7 +86,7 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 ## Post-MVP
 
-Post MVP goals include movie categories, tracking the number in stock and checked out, along with rental lengths, and when they are due back, and adding criteria to flag movies as 'new releases'. A styling post-MVP goal is to add more elements to make the experience feel like using a DOS machine like primarily using arrow keys and tab to navigate the application.
+
 
 ***
 

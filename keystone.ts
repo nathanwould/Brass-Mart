@@ -58,10 +58,10 @@ export default withAuth(
       provider: 'postgresql',
       url: databaseURL,
       onConnect: async context =>  {
-        console.log('Connected to Database');
+        console.log(`Front-end URL: ${process.env.FRONTEND_URL}`);
         // console.log(context);
         // if (process.argv.includes('--seed-data')) {
-        //   insertSeedData(keystone);
+        //   await insertSeedData(keystone);
         // }
       },
     },
