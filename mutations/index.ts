@@ -32,7 +32,7 @@ export const extendGraphqlSchema = graphQLSchemaExtension({
           where: { user: { id: {equals: sesh.itemId} }, product: { id: {equals: productId} } },
           // resolveFields: 'id, quantity'
         });
-        console.log('All cart items:')
+        console.log('All cart items:', allCartItems)
         
         const [existingCartItem] = allCartItems;
         if (existingCartItem) {

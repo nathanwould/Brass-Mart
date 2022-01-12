@@ -25,7 +25,7 @@ function createClient({ headers, initialState }) {
       }),
       // this uses apollo-link-http under the hood, so all the options here come from that package
       createUploadLink({
-        uri: /*process.env.NODE_ENV === 'development' ? prodEndpoint : */endpoint,
+        uri: process.env.NODE_ENV === 'development' ? prodEndpoint : endpoint,
         fetchOptions: {
           credentials: 'include',
         },
