@@ -38,7 +38,7 @@ const { withAuth } = createAuth({
     fields: ['name', 'email', 'password'],
     // TODO: add in intial roles
   },
-  sessionData: `id, name, email, role, { ${permissionsList.join(' ')} }`,
+  sessionData: `id name email role { ${permissionsList.join(' ')} }`,
   passwordResetLink: {
     async sendToken(args) {
       await sendPasswordResetEmail(args.token, args.identity)
