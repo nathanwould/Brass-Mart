@@ -7,14 +7,10 @@ A demo webstore built with a Keystone.js GraphQL database, Next.js front-end and
   - [Goals](#goals)
   - [Libraries and Dependencies](#libraries-and-dependencies)
   - [Server (Back End)](#server-back-end)
+    - [Approach](#approach)  
     - [ERD Model](#erd-model)
   - [Client (Front End)](#client-front-end)
-    - [Wireframes](#wireframes)
-    - [Component Tree](#component-tree)
-    - [Component Architecture](#component-architecture)
-    - [Time Estimates](#time-estimates)
-- [Post-MVP](#post-mvp)
-- [Code Showcase](#code-showcase)
+    - [Approach](#approach)
 - [Code Issues & Resolutions](#code-issues--resolutions)
 
 <br>
