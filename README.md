@@ -59,7 +59,7 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 ### Database (Back End)
 
-#### Rationale
+#### Approach
 
 As mentioned above, one of my biggest questions was how to hand off a finished project to a non-technical client and have them be able to easily modify content, like in the case of products in an ecommerce platform. Fortunately, the Wes Bos Advanced React course (https://advancedreact.com/) was incredibly helpful in helping me answer this question. 
 
@@ -111,34 +111,20 @@ The end result has been perfectly aligned with my goal of a database accessible 
 
 #### ERD Model
 
+![ERD image](https://i.imgur.com/ZHRvyNvl.png)
 
 <br>
 
 ### Client (Front End)
 
+![Front-end screenshot](https://i.imgur.com/5VJdWGul.png)
 
-#### Component Tree
+####Approach
 
->Front-end application structure:
+For my project's front end my goal was to design a clean, minimal application that followed best practices for design and user interactions. I used it as an excuse to implement Next.js, which supports server and client-side rendering to help increase performance, as well as translating your file structure into routes, bypassing the need for explicit route declaration. I also used Apollo Client to handle GraphQL queries to the database. To handle the visual styling I used the Ant Design framework and component library, which allowed me to write very little css and usually only have to get involved to change the positioning of elements. Ant Design's component library is also a powerful tool because of its built-in functionality. For example their Form component and its related children has all input handling built in, bypassing the need for a useForm() custom hook or comparable handler I had been accustomed to creating. Between Next and Antd I eliminated close to 30% of the total code I would have had to write or the front end, saving quite a bit of time even with the learning curve of utilizing many features for the first time. 
 
-
-#### Component Architecture
-
-
-
-
-***
-
-## Post-MVP
-
-
-
-***
-
-## Code Showcase
-
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution.
+> Currently in progress:
+> Completed project v1 was functioning as it should in development, but after deployment there has been an issue with the request headers not being properly sent between the client and database. The signin mutation is receiving a success code but the user is missing from the returned headers.
