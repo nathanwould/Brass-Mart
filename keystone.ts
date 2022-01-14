@@ -6,8 +6,8 @@ import { ProductImage } from './schemas/ProductImage';
 import { CartItem } from './schemas/CartItem';
 import { OrderItem } from './schemas/OrderItem';
 import { Order } from './schemas/Order';
-import { Role } from './schemas/Role';
-import { permissionsList } from './schemas/Fields';
+// import { Role } from './schemas/Role';
+// import { permissionsList } from './schemas/Fields';
 import { config } from '@keystone-next/keystone';
 import {
   DatabaseConfig,
@@ -38,7 +38,7 @@ const { withAuth } = createAuth({
     fields: ['name', 'email', 'password'],
     // TODO: add in intial roles
   },
-  sessionData: `id name email role { ${permissionsList.join(' ')} }`,
+  sessionData: `id name email`,
   passwordResetLink: {
     async sendToken(args) {
       await sendPasswordResetEmail(args.token, args.identity)
@@ -72,7 +72,7 @@ export default withAuth(
       CartItem,
       OrderItem,
       Order,
-      Role,
+      // Role,
     }),
     extendGraphqlSchema,
     ui: {

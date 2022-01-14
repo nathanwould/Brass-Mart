@@ -4,12 +4,12 @@ import { rules } from "../access";
 
 export const Product = list({
   // TODO:
-  access: {
-    create: rules.canManageProducts,
-    read: rules.canReadProducts,
-    update: rules.canManageProducts,
-    delete: rules.canManageProducts,
-  },
+  // access: {
+  //   create: rules.canManageProducts,
+  //   read: rules.canReadProducts,
+  //   update: rules.canManageProducts,
+  //   delete: rules.canManageProducts,
+  // },
   fields: {
     productType: select({
       options: [
