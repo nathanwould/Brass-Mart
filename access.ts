@@ -1,6 +1,6 @@
 // At its simplest, access control is either a yes or no value depending on the user's session
 
-import { permissionsList } from "./schemas/fields";
+import { permissionsList } from "./schemas/Fields";
 import { ListAccessArgs } from "./types";
 
 export function isSignedIn({ session }: ListAccessArgs) {
