@@ -7,6 +7,7 @@ import { CartItem } from './schemas/CartItem';
 import { OrderItem } from './schemas/OrderItem';
 import { Order } from './schemas/Order';
 import { Role } from './schemas/Role';
+import { permissionsList } from './schemas/Fields';
 import { config } from '@keystone-next/keystone';
 import {
   DatabaseConfig,
@@ -20,7 +21,6 @@ import { statelessSessions } from '@keystone-next/keystone/session';
 import { postgresql } from '@keystone-next/keystone/dist/declarations/src/types/filters';
 import { extendGraphqlSchema } from './mutations';
 import { sendPasswordResetEmail } from './lib/mail';
-import { permissionsList } from './schemas/Fields';
 
 
 const databaseURL = process.env.DATABASE_URL || 'postgres://admin:adminpassword@localhost/brassmart';
