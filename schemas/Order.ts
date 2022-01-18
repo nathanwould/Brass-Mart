@@ -2,7 +2,7 @@ import { list } from "@keystone-next/keystone";
 // import { graphql } from '@keystone-next/keystone';
 import { integer, relationship, text } from "@keystone-next/keystone/fields";
 // import formatMoney from "../client/lib/formatMoney";
-import { rules } from "../access";
+import { isSignedIn, rules } from "../access";
 
 export const Order = list({
   access: {

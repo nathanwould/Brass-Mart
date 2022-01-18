@@ -1,6 +1,6 @@
 import { list } from "@keystone-next/keystone";
 import { integer, relationship, text } from "@keystone-next/keystone/fields";
-import { rules } from "../access";
+import { isSignedIn, rules } from "../access";
 
 export const OrderItem = list({
   access: {

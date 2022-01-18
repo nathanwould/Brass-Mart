@@ -1,12 +1,12 @@
 import { integer, relationship } from "@keystone-next/keystone/fields";
 import { list } from '@keystone-next/keystone'
-import { rules } from "../access";
+import { isSignedIn, rules } from "../access";
 
 export const CartItem = list({
   access: {
     create: isSignedIn,
     read: rules.canOrder,
-    update: specifiedRules.canOrder,
+    update: rules.canOrder,
     delete: rules.canOrder,
   },
   ui: {
