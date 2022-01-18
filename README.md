@@ -116,6 +116,8 @@ The end result has been perfectly aligned with my goal of a database accessible 
 ![Front-end screenshot](https://i.imgur.com/5VJdWGul.png)
 <br>
 
+>Take a look here: https://brass-mart.netlify.app/instruments
+
 #### Approach
 
 For my project's front end my goal was to design a clean, minimal application that followed best practices for design and user interactions. I used it as an excuse to implement Next.js, which supports server and client-side rendering to help increase performance, as well as translating your file structure into routes, bypassing the need for explicit route declaration. I also used Apollo Client to handle GraphQL queries to the database. To handle the visual styling I used the Ant Design framework and component library, which allowed me to write very little css and usually only have to get involved to change the positioning of elements. Ant Design's component library is also a powerful tool because of its built-in functionality. For example their Form component and its related children has all input handling built in, bypassing the need for a useForm() custom hook or comparable handler I had been accustomed to creating. Between Next and Antd I eliminated close to 30% of the total code I would have had to write or the front end, saving quite a bit of time even with the learning curve of utilizing many features for the first time. 
