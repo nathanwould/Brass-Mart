@@ -6,10 +6,12 @@ import { isSignedIn, rules } from "../access";
 
 export const Order = list({
   access: {
-    create: isSignedIn,
-    read: rules.canOrder,
-    update: () => false,
-    delete: () => false,
+    operation: {
+      query: ({ session, context, listKey, operation }) => true,
+      create: ({ session, context, listKey, operation }) => true,
+      update: ({ session, context, listKey, operation }) => true,
+      delete: ({ session, context, listKey, operation }) => true,
+    }
   },
   fields: {
     // label: virtual({

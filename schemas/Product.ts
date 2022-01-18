@@ -5,10 +5,12 @@ import { rules } from "../access";
 export const Product = list({
   // TODO:
   access: {
-    create: rules.canManageProducts,
-    read: rules.canReadProducts,
-    update: rules.canManageProducts,
-    delete: rules.canManageProducts,
+    operation: {
+      query: ({ session, context, listKey, operation }) => true,
+      create: ({ session, context, listKey, operation }) => true,
+      update: ({ session, context, listKey, operation }) => true,
+      delete: ({ session, context, listKey, operation }) => true,
+    }
   },
   fields: {
     productType: select({

@@ -4,10 +4,12 @@ import { isSignedIn, rules } from "../access";
 
 export const CartItem = list({
   access: {
-    create: isSignedIn,
-    read: rules.canOrder,
-    update: rules.canOrder,
-    delete: rules.canOrder,
+    operation: {
+      query: ({ session, context, listKey, operation }) => true,
+      create: ({ session, context, listKey, operation }) => true,
+      update: ({ session, context, listKey, operation }) => true,
+      delete: ({ session, context, listKey, operation }) => true,
+    }
   },
   ui: {
     listView: {
