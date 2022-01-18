@@ -55,6 +55,8 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 ### Database (Back End)
 
+>Take a look here: https://rocky-plains-31371.herokuapp.com/
+
 #### Approach
 
 As mentioned above, one of my biggest questions was how to hand off a finished project to a non-technical client and have them be able to easily modify content, like in the case of products in an ecommerce platform. Fortunately, the Wes Bos Advanced React course (https://advancedreact.com/) was incredibly helpful in helping me answer this question. 
@@ -116,7 +118,7 @@ The end result has been perfectly aligned with my goal of a database accessible 
 ![Front-end screenshot](https://i.imgur.com/5VJdWGul.png)
 <br>
 
->Take a look here: https://brass-mart.netlify.app/instruments
+>Take a look here: https://brass-mart.netlify.app/
 
 #### Approach
 
