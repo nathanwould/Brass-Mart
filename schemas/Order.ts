@@ -2,14 +2,15 @@ import { list } from "@keystone-next/keystone";
 // import { graphql } from '@keystone-next/keystone';
 import { integer, relationship, text } from "@keystone-next/keystone/fields";
 // import formatMoney from "../client/lib/formatMoney";
+import { rules } from "../access";
 
 export const Order = list({
-  // access: {
-  //   create: isSignedIn,
-  //   read: rules.canOrder,
-  //   update: () => false,
-  //   delete: () => false,
-  // },
+  access: {
+    create: isSignedIn,
+    read: rules.canOrder,
+    update: () => false,
+    delete: () => false,
+  },
   fields: {
     // label: virtual({
     //   field: graphql.field({

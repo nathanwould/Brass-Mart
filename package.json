@@ -10,6 +10,8 @@
     "dev": "keystone-next dev",
     "start": "keystone-next start",
     "build": "keystone-next build",
+    "postinstall": "keystone-next postinstall",
+    "postinstall-fix": "keystone-next postinstall --fix",
     "prisma": "keystone-next prisma migrate resolve --applied 20210426141759_initial-migration",
     "reset": "keystone-next dev --reset-db"
   },

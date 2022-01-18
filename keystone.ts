@@ -6,8 +6,8 @@ import { ProductImage } from './schemas/ProductImage';
 import { CartItem } from './schemas/CartItem';
 import { OrderItem } from './schemas/OrderItem';
 import { Order } from './schemas/Order';
-// import { Role } from './schemas/Role';
-// import { permissionsList } from './schemas/Fields';
+import { Role } from './schemas/Role';
+import { permissionsList } from './schemas/Fields';
 import { config } from '@keystone-next/keystone';
 import {
   DatabaseConfig,
@@ -72,7 +72,7 @@ export default withAuth(
       CartItem,
       OrderItem,
       Order,
-      // Role,
+      Role,
     }),
     extendGraphqlSchema,
     ui: {
