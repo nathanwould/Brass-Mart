@@ -40,6 +40,8 @@ const db = {
 const sessionConfig = {
   maxAge: 60 * 60 * 24 * 30,
   secret: process.env.SESSION_SECRET,
+  secure: true,
+  sameSite: true,
 }
 
 const { withAuth } = createAuth({
