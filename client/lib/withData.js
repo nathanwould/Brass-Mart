@@ -6,12 +6,17 @@ import { createUploadLink } from 'apollo-upload-client';
 import withApollo from 'next-with-apollo';
 import { endpoint, prodEndpoint } from '../config';
 
-const token = localStorage.getItem('token');
+const responseLogger = new ApolloLink((operation, forward) => {
+  return forward(operation).map(result => {
+    console.info(operation.getContext().response.headers)
+    return result
+  })
+})
 
 function createClient({ headers, initialState }) {
-  // console.log(headers)
   return new ApolloClient({
     link: ApolloLink.from([
+      // responseLogger,
       onError(({ graphQLErrors, networkError }) => {
         if (graphQLErrors)
           graphQLErrors.forEach(({ message, locations, path }) =>
@@ -34,8 +39,8 @@ function createClient({ headers, initialState }) {
         // pass the headers along from this request. This enables SSR with logged in state
         headers: {
           ...headers,
-          authorization: token ? `Bearer ${token}` : '',
-          // cookie: headers && headers.cookie
+          // authorization: token ? `Bearer ${token}` : '',
+          // cookie: `keystonejs-session=${token}`
         },
       }),
     ]),
