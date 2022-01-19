@@ -4,10 +4,12 @@ import { isSignedIn, rules } from "../access";
 
 export const OrderItem = list({
   access: {
-    create: isSignedIn,
-    read: rules.canManageOrderItems,
-    update: false,
-    delete: false,
+    operation: {
+      query: ({ session, context, listKey, operation }) => true,
+      create: ({ session, context, listKey, operation }) => true,
+      update: ({ session, context, listKey, operation }) => true,
+      delete: ({ session, context, listKey, operation }) => true,
+    }
   },
   fields: {
     name: text({ validation: { isRequired: true } }),
