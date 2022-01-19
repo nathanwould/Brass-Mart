@@ -8,7 +8,7 @@ import { OrderItem } from './schemas/OrderItem';
 import { Order } from './schemas/Order';
 import { Role } from './schemas/Role';
 import { permissionsList } from './schemas/Fields';
-import { config } from '@keystone-next/keystone';
+import { config } from '@keystone-6/core';
 import {
   DatabaseConfig,
   ListSchemaConfig,
@@ -24,6 +24,18 @@ import { sendPasswordResetEmail } from './lib/mail';
 
 
 const databaseURL = process.env.DATABASE_URL || 'postgres://admin:adminpassword@localhost/brassmart';
+
+const db = {
+  provider: 'postgresql',
+  url: databaseURL,
+  onConnect: async context => {
+    console.log(`Front-end URL: ${process.env.FRONTEND_URL}`);
+    // console.log(context);
+    // if (process.argv.includes('--seed-data')) {
+    //   await insertSeedData(keystone);
+    // }
+  },
+};
 
 const sessionConfig = {
   maxAge: 60 * 60 * 24 * 30,
@@ -46,6 +58,16 @@ const { withAuth } = createAuth({
   },
 });
 
+const lists = {
+  User,
+  Product,
+  ProductImage,
+  CartItem,
+  OrderItem,
+  Order,
+  Role,
+};
+
 export default withAuth(
   config({
     server: {
@@ -54,26 +76,8 @@ export default withAuth(
         credentials: true,
       },
     },
-    db: {
-      provider: 'postgresql',
-      url: databaseURL,
-      onConnect: async context =>  {
-        console.log(`Front-end URL: ${process.env.FRONTEND_URL}`);
-        // console.log(context);
-        // if (process.argv.includes('--seed-data')) {
-        //   await insertSeedData(keystone);
-        // }
-      },
-    },
-    lists: ({
-      User,
-      Product,
-      ProductImage,
-      CartItem,
-      OrderItem,
-      Order,
-      Role,
-    }),
+    db,
+    lists,
     extendGraphqlSchema,
     ui: {
       // TODO: change for roles
