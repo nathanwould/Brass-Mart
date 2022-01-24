@@ -8,6 +8,7 @@ const CURRENT_USER_QUERY = gql`
         id
         email
         name
+        cartCount
         cart {
           id
           quantity
@@ -46,7 +47,7 @@ const CURRENT_USER_QUERY = gql`
 
 export function useUser() {
   const { data } = useQuery(CURRENT_USER_QUERY);
-  console.log(data);
+  console.log(data?.authenticatedItem);
   return data?.authenticatedItem;
 }
 

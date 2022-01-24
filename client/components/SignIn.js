@@ -7,8 +7,13 @@ import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import { useRouter} from "next/router";
 
 const SIGN_IN_MUTATION = gql`
-  mutation SIGN_IN_MUTATION($email: String!, $password: String!) {
-    authenticateUserWithPassword(email: $email, password: $password) {
+  mutation SIGN_IN_MUTATION(
+    $email: String!, 
+    $password: String!
+    ) {
+    authenticateUserWithPassword(
+      email: $email, 
+      password: $password) {
       ... on UserAuthenticationWithPasswordSuccess {
         sessionToken,
         item {

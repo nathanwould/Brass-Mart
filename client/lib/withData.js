@@ -49,14 +49,15 @@ function createClient({ headers, initialState }) {
       createHttpLink({
         uri: /*process.env.NODE_ENV === 'development' ? prodEndpoint : */endpoint,
         // fetchOptions: {
-          credentials: 'include',
+        credentials: 'include',
         // },
         // pass the headers along from this request. This enables SSR with logged in state
-        headers: {
-          ...headers,
-        //   // authorization: token ? `Bearer ${token}` : '',
+        headers,
+        // : {
+          // ...headers,
+          // authorization: `Bearer ${sessionToken}`,
           // cookie: `keystonejs-session=${token}`
-        },
+        // },
       }),
     ]),
     cache: new InMemoryCache({
