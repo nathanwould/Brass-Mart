@@ -4,11 +4,12 @@ import { permissions, rules } from '../access';
 
 export const User = list({
   access: {
-    // create: () => true,
-    // read: rules.canManageUsers,
-    // update: rules.canManageUsers,
-    // // only people with the permission can delete themselves
-    // delete: permissions.canManageUsers,
+    operation: {
+      query: ({ session, context, listKey, operation }) => true,
+      create: ({ session, context, listKey, operation }) => true,
+      update: ({ session, context, listKey, operation }) => true,
+      delete: ({ session, context, listKey, operation }) => true,
+    }
   },
   ui: {
     // hide the back end UI from regular users

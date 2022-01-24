@@ -2,7 +2,7 @@ import { ApolloClient, createHttpLink, ApolloLink, InMemoryCache } from '@apollo
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/link-error';
 import { getDataFromTree } from '@apollo/client/react/ssr';
-import { createUploadLink } from 'apollo-upload-client';
+// import { createUploadLink } from 'apollo-upload-client';
 import withApollo from 'next-with-apollo';
 import { endpoint, prodEndpoint } from '../config';
 
@@ -11,11 +11,26 @@ const responseLogger = new ApolloLink((operation, forward) => {
     console.info(operation.getContext().response.headers)
     return result
   })
-})
+});
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem('token');
+  // return the headers to the context so httpLink can read them
+  // console.log(token)
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    }
+  }
+});
 
 function createClient({ headers, initialState }) {
+  // console.log(authLink)
   return new ApolloClient({
-    link: ApolloLink.from([
+    link:
+      ApolloLink.from([
       // responseLogger,
       onError(({ graphQLErrors, networkError }) => {
         if (graphQLErrors)
@@ -31,15 +46,15 @@ function createClient({ headers, initialState }) {
         };
       }),
       // this uses apollo-link-http under the hood, so all the options here come from that package
-      createUploadLink({
-        uri: process.env.NODE_ENV === 'development' ? prodEndpoint : endpoint,
-        fetchOptions: {
+      createHttpLink({
+        uri: /*process.env.NODE_ENV === 'development' ? prodEndpoint : */endpoint,
+        // fetchOptions: {
           credentials: 'include',
-        },
+        // },
         // pass the headers along from this request. This enables SSR with logged in state
         headers: {
           ...headers,
-          // authorization: token ? `Bearer ${token}` : '',
+        //   // authorization: token ? `Bearer ${token}` : '',
           // cookie: `keystonejs-session=${token}`
         },
       }),
