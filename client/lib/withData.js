@@ -47,17 +47,12 @@ function createClient({ headers, initialState }) {
       }),
       // this uses apollo-link-http under the hood, so all the options here come from that package
       createHttpLink({
-        uri: /*process.env.NODE_ENV === 'development' ? prodEndpoint : */endpoint,
+        uri: process.env.NODE_ENV === 'development' ? prodEndpoint : endpoint,
         // fetchOptions: {
         credentials: 'include',
         // },
         // pass the headers along from this request. This enables SSR with logged in state
         headers,
-        // : {
-          // ...headers,
-          // authorization: `Bearer ${sessionToken}`,
-          // cookie: `keystonejs-session=${token}`
-        // },
       }),
     ]),
     cache: new InMemoryCache({
