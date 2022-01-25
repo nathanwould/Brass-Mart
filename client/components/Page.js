@@ -4,7 +4,7 @@ import Header from './Header';
 import { GithubOutlined, LinkedinOutlined, InstagramOutlined } from '@ant-design/icons';
 
 export default function Page({ children }) {
-  const { Footer } = Layout;
+  const { Content, Footer } = Layout;
   return (
       <Layout className="layout">
       <Header Layout={Layout} />
@@ -13,9 +13,9 @@ export default function Page({ children }) {
         width: "100%",
         backgroundImage: `url("https://res.cloudinary.com/dkyy9wjvs/image/upload/v1637184051/dsc_0383_brtvxm.jpg")`
       }} />
-        <div className="site-layout-content">
+        <Content className="site-layout-content" style={{marginBottom: "5em"}}>
         {children}
-        </div>
+        </Content>
       <Footer
         style={{
           background: "white",

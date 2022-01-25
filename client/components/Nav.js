@@ -22,11 +22,11 @@ export default function Nav({ Layout }) {
   //   refetchQueries: [{ query: CURRENT_USER_QUERY }],
   // },
   // );
-  let cartCount = user?.cart?.reduce(
-    (tally, cartItem) =>
-      tally + (cartItem.product ? cartItem.quantity : 0),
-    0
-  )
+  // let cartCount = user?.cart?.reduce(
+  //   (tally, cartItem) =>
+  //     tally + (cartItem.product ? cartItem.quantity : 0),
+  //   0
+  // )
   return (
     <Menu mode="horizontal">
       <Menu.Item key='home' className="logo">
@@ -62,11 +62,18 @@ export default function Nav({ Layout }) {
           </Menu.Item>
           <Menu.Item key='cart'>
             <Button
-              style={{border: 'none'}}
+              style={{ border: 'none'}}
               onClick={openCart}
 
             >
-              Cart {cartCount}
+              Cart
+              <span style={{
+                padding: '.2rem',
+                marginLeft: ".5rem",
+                boxShadow: 'none'
+              }}>
+                {user.cartCount}
+              </span>
             </Button>
           </Menu.Item>
           <Menu.Item key="sign-out-button">

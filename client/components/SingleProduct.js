@@ -81,8 +81,8 @@ export default function SingleProduct({ id }) {
                   alt={photo.image.alt}
                   src={photo.image.publicUrlTransformed}
                   style={{
-                    height: "50vh",
-                    width: "80vh",
+                    height: "25em",
+                    width: "40em",
                     objectFit: "cover",
                   }}
                 />
@@ -91,13 +91,17 @@ export default function SingleProduct({ id }) {
             <Space
               direction="vertical"
               style={{
-                maxWidth: "60vh"
+                maxWidth: "60vh",
               }}
             >
               <Text><Text strong>Maker:</Text> {product.make}</Text>
               <Text><Text strong>Model:</Text> {product.model}</Text>
-              <Text><Text strong>Bore Size:</Text> {product.boreSize}"</Text>
-              <Text><Text strong>Bell Diameter:</Text> {product.bellSize}"</Text>
+              {(product.category === 'instrument') && 
+                <Space>
+                  <Text><Text strong>Bore Size:</Text> {product.boreSize}"</Text>
+                  <Text><Text strong>Bell Diameter:</Text> {product.bellSize}"</Text>
+                </Space>
+              }
               <Paragraph>{product.description}</Paragraph>
               <Title level={5}>{formatMoney(product.price)}</Title>
               <AddToCart id={product.id}/>

@@ -42,6 +42,7 @@ export const Product = list({
         { label: 'Horn', value: 'horn' },
         { label: 'Mouthpiece', value: 'mouthpiece' },
         { label: 'Case', value: 'case' },
+        { label: 'Maintenance', value: 'maintenance' },
       ],
       validation: {isRequired: true,}
     }),

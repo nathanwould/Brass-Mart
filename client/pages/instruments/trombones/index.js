@@ -36,25 +36,32 @@ export default function TrombonePage() {
         <Breadcrumb.Item>Trombones</Breadcrumb.Item>
       </Breadcrumb>
       <Content className="site-layout-background" >
-      {!!data ? !!data.products.length ?
-          <Products products={data.products} />
-            : <p className="out-of-stock-message">
-            No trombones in stock!
-          </p>
-            :
-          <Card className="skeleton-card">
-            <Skeleton
-              active
-              loading={true}
-            >
-              <Skeleton.Image />
-                <Meta
-                  title="Card Title"
-                  description="This is the description"
-                />
-              </Skeleton>
-            </Card>
-            }
+      <div style={{
+        height: "10rem",
+        width: "100%",
+        backgroundImage: `url("https://i.imgur.com/EILM0eV.jpg")`,
+        backgroundPosition: 'center',
+        marginBottom: '2em',
+        }} />
+        {!!data ? !!data.products.length ?
+            <Products products={data.products} />
+              : <p className="out-of-stock-message">
+              No trombones in stock!
+            </p>
+              :
+            <Card className="skeleton-card">
+              <Skeleton
+                active
+                loading={true}
+              >
+                <Skeleton.Image />
+                  <Meta
+                    title="Card Title"
+                    description="This is the description"
+                  />
+                </Skeleton>
+              </Card>
+              }
       </Content>
     </Layout>
   );

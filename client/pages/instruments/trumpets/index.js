@@ -1,4 +1,4 @@
-import { Layout, Breadcrumb } from "antd";
+import { Layout, Breadcrumb, Card, Skeleton } from "antd";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
 import Products from "../../../components/Products";
@@ -25,7 +25,7 @@ export const ALL_TRUMPETS_QUERY = gql`
 export default function TrumpetPage() {
   const { Content } = Layout;
   const { data, error, loading } = useQuery(ALL_TRUMPETS_QUERY);
-
+  const { Meta } = Card;
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>
   return (
@@ -36,12 +36,32 @@ export default function TrumpetPage() {
         <Breadcrumb.Item>Trumpets</Breadcrumb.Item>
       </Breadcrumb>
       <Content className="site-layout-background" >
-      {!!data.products.length ?
-          <Products products={data.products} />
-          : <p className="out-of-stock-message">
-            No trumpets in stock!
-          </p>
-        }
+      <div style={{
+        height: "10rem",
+        width: "100%",
+        backgroundImage: `url("https://i.imgur.com/Pdc8w9p.jpg")`,
+        backgroundPosition: 'center',
+        marginBottom: '2em',
+      }} />
+      {!!data ? !!data.products.length ?
+            <Products products={data.products} />
+              : <p className="out-of-stock-message">
+              No trupets in stock!
+            </p>
+              :
+            <Card className="skeleton-card">
+              <Skeleton
+                active
+                loading={true}
+              >
+                <Skeleton.Image />
+                  <Meta
+                    title="Card Title"
+                    description="This is the description"
+                  />
+                </Skeleton>
+              </Card>
+              }
       </Content>
     </Layout>
   );
