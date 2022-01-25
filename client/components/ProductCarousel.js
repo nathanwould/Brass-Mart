@@ -22,9 +22,11 @@ export default function ProductCarousel({ products }) {
       >
         {products.map((product, idx) =>
           idx < 6 ? 
-            <a href={`/instrument/${product.id}`}>
+            <a
+              key={idx}
+              href={`/instrument/${product.id}`}
+            >
               <Card
-                key={idx}
                 cover={
                   <img
                     alt={product.name}

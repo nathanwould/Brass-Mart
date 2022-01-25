@@ -37,12 +37,12 @@ const db = {
   },
 };
 
-// const sessionConfig = {
-//   maxAge: 60 * 60 * 24 * 30,
-//   secret: process.env.SESSION_SECRET,
-//   secure: true,
-//   sameSite: true,
-// }
+const sessionConfig = {
+  maxAge: 60 * 60 * 24 * 30,
+  secret: process.env.SESSION_SECRET,
+  secure: true,
+  sameSite: 'none',
+} 
 
 const { withAuth } = createAuth({
   listKey: 'User',
@@ -85,11 +85,6 @@ export default withAuth(
       // TODO: change for roles
       isAccessAllowed: ({ session }) => !!session?.data
     },
-    session: statelessSessions({
-      maxAge: 60 * 60 * 24 * 30,
-      secret: process.env.SESSION_SECRET,
-      secure: true,
-      sameSite: true,
-    })
+    session: statelessSessions(sessionConfig)
   }),
 );

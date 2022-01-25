@@ -1,13 +1,5 @@
 import { Card } from "antd";
 
-
-const categoryImageStyles = {
-  width: '20vh',
-  height: '15vh',
-  marginBottom: '2vh',
-  objectFit: 'cover'
-};
-
 export default function InstrumentCategories() {
   return (
     <div
