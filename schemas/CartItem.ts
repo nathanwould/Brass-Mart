@@ -1,5 +1,5 @@
+import { list } from '@keystone-next/keystone';
 import { integer, relationship } from "@keystone-next/keystone/fields";
-import { list } from '@keystone-next/keystone'
 import { isSignedIn, rules } from "../access";
 
 export const CartItem = list({

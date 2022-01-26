@@ -8,14 +8,14 @@ import { OrderItem } from './schemas/OrderItem';
 import { Order } from './schemas/Order';
 import { Role } from './schemas/Role';
 import { permissionsList } from './schemas/Fields';
-import { config } from '@keystone-6/core';
-import {
-  DatabaseConfig,
+import { config, list } from '@keystone-6/core';
+import type {
   ListSchemaConfig,
-  AdminUIConfig,
   ServerConfig,
+  DatabaseConfig,
+  AdminUIConfig,
   SessionStrategy,
-} from '@keystone-next/keystone/types';
+} from '@keystone-6/core/types';
 import { statelessSessions } from '@keystone-next/keystone/session';
 // import { insertSeedData } from './seed-data/index';
 import { postgresql } from '@keystone-next/keystone/dist/declarations/src/types/filters';

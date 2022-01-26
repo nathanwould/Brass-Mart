@@ -2,32 +2,17 @@ import { ApolloClient, createHttpLink, ApolloLink, InMemoryCache } from '@apollo
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/link-error';
 import { getDataFromTree } from '@apollo/client/react/ssr';
-// import { createUploadLink } from 'apollo-upload-client';
 import withApollo from 'next-with-apollo';
 import { endpoint, prodEndpoint } from '../config';
 
-const responseLogger = new ApolloLink((operation, forward) => {
-  return forward(operation).map(result => {
-    console.info(operation.getContext().response.headers)
-    return result
-  })
-});
-
-const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('token');
-  // return the headers to the context so httpLink can read them
-  // console.log(token)
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    }
-  }
-});
+// const responseLogger = new ApolloLink((operation, forward) => {
+//   return forward(operation).map(result => {
+//     console.info(operation.getContext().response.headers)
+//     return result
+//   })
+// });
 
 function createClient({ headers, initialState }) {
-  // console.log(authLink)
   return new ApolloClient({
     link:
       ApolloLink.from([
