@@ -1,4 +1,4 @@
-import { Layout, Breadcrumb, Card, Skeleton } from "antd";
+import { Layout, Breadcrumb, Card, Skeleton, Typography } from "antd";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
 import Products from "../../../components/Products";
@@ -26,8 +26,7 @@ export default function TubaPage() {
   const { Content } = Layout;
   const { data, error, loading } = useQuery(ALL_TUBAS_QUERY);
   const { Meta } = Card;
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error: {error.message}</p>
+  const { Title } = Typography;
   return (
     <Layout style={{ width: "100%" }}>
       <Breadcrumb style={{ margin: '1rem 0 0 1.5rem' }}>
@@ -42,7 +41,16 @@ export default function TubaPage() {
         backgroundImage: `url("https://i.imgur.com/vkuNeWU.png")`,
         backgroundPosition: 'center',
         marginBottom: '2em',
-      }} />
+        }}>
+          <Title
+            style={{
+              padding: '1rem',
+              color: "white",
+            }}
+          >
+            Tubas
+          </Title>
+      </div>
       {!!data ? !!data.products.length ?
             <Products products={data.products} />
               : <p className="out-of-stock-message">

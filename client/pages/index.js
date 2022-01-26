@@ -43,13 +43,13 @@ export default function Index() {
           <Paragraph>Please whatever you do don't enter your actual credit card information.</Paragraph>
         </Space>
         <div
-          style={{
-            height: '10em',
-            width: "100%",
-            backgroundImage: `url("https://i.imgur.com/vkuNeWU.png")`,
-            backgroundPosition: "center",
-            marginBottom: '4em',
-          }}
+          // style={{
+          //   height: '10em',
+          //   width: "100%",
+          //   backgroundImage: `url("https://i.imgur.com/vkuNeWU.png")`,
+          //   backgroundPosition: "center",
+          //   marginBottom: '4em',
+          // }}
         >
         </div>
         {data && <ProductCarousel products={data.products} />}

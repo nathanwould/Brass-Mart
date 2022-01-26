@@ -1,4 +1,4 @@
-import { Layout, Breadcrumb, Skeleton, Card } from "antd";
+import { Layout, Breadcrumb, Skeleton, Card, Typography } from "antd";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
 import Products from "../../../components/Products";
@@ -26,6 +26,7 @@ export default function HornPage() {
   const { Content } = Layout;
   const { data, error, loading } = useQuery(ALL_HORNS_QUERY);
   const { Meta } = Card;
+  const { Title } = Typography;
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>
   console.log(!!data.products.length)
@@ -43,7 +44,16 @@ export default function HornPage() {
           backgroundImage: `url("https://i.imgur.com/vkuNeWU.png")`,
           backgroundPosition: 'center',
           marginBottom: '2em',
-        }} />
+        }}>
+          <Title
+            style={{
+              padding: '1rem',
+              color: "white",
+            }}
+          >
+            Horns
+          </Title>
+        </div>
         {!!data ? !!data.products.length ?
           <Products products={data.products} />
             : <p className="out-of-stock-message">

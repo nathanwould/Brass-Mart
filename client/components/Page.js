@@ -19,9 +19,18 @@ export default function Page({ children }) {
       <Footer
         style={{
           background: "white",
-          padding: "1.5rem 1rem"
+          padding: "0 0 1rem"
         }}
       >
+        <div
+        style={{
+            height: '10em',
+            width: "100%",
+            backgroundImage: `url("https://i.imgur.com/vkuNeWU.png")`,
+            backgroundPosition: "center",
+            // marginBottom: '4em',
+          }}
+        />
         <Menu mode="horizontal"
           style={{
             border: "none",
@@ -31,18 +40,49 @@ export default function Page({ children }) {
           <Menu.Item key="footer-home" style={{paddingLeft: "1rem"}}>
             <a href="/">Home</a>
           </Menu.Item>
-          <Menu.Item key="footer-about">
-            <a href="/about">About</a>
+          <Menu.Item key="footer-instruments">
+            <a href="/instruments">Instruments</a>
           </Menu.Item>
-          <Menu.Item key="footer-contact">
-            <a href="/contact">Contact Us</a>
+          <Menu.Item key="footer-accessories">
+            <a href="/accessories">Accessories</a>
+          </Menu.Item>
+          <Menu.Item key="footer-about">
+            <a
+              href="https://www.nathanwould.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              About
+            </a>
           </Menu.Item>
         </Menu>
         <BackTop />
-        <Space direction="horizontal">
-          <a href="/" className="footer-link"><GithubOutlined /></a>
-          <a href="/" className="footer-link"><LinkedinOutlined /></a>
-          <a href="/" className="footer-link"><InstagramOutlined /></a>
+        <Space
+          direction="horizontal"
+        >
+          <a
+            href="https://github.com/nathanwould"
+            className="footer-link"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <GithubOutlined />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/nathan-wood-dev/"
+            className="footer-link"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <LinkedinOutlined />
+          </a>
+          <a href="https://www.instagram.com/_nathanwould_/"
+            className="footer-link"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <InstagramOutlined />
+          </a>
         </Space>
       </Footer>
       </Layout>
