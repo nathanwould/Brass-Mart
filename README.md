@@ -127,5 +127,6 @@ For my project's front end my goal was to design a clean, minimal application th
 
 ## Code Issues & Resolutions
 
-> Currently in progress:
-> Completed project v1 was functioning as it should in development, but after deployment there has been an issue with the request headers not being properly sent between the client and database. The signin mutation is receiving a success code but the user is missing from the returned headers.
+> Resolved:
+> Issue: Completed project v1 was functioning as it should in development, but after deployment there has been an issue with the request headers not being properly sent between the client and database. The signin mutation is receiving a success code but the user is missing from the returned headers.
+> Resolution: changed sameSite cookie policy to 'none'.
