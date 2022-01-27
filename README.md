@@ -55,7 +55,7 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 ### Database (Back End)
 
->Take a look here: https://rocky-plains-31371.herokuapp.com/
+>Take a look here after making an account through the front end: https://brass-mart-db.herokuapp.com/
 
 #### Approach
 
