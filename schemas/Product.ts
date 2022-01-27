@@ -1,16 +1,22 @@
 import { list } from "@keystone-next/keystone";
 import { text, integer, select, relationship, float } from "@keystone-next/keystone/fields";
 import { rules } from "../access";
+import { permissions } from "../access";
 
 export const Product = list({
   // TODO:
   access: {
     operation: {
       query: ({ session, context, listKey, operation }) => true,
-      create: ({ session, context, listKey, operation }) => true,
-      update: ({ session, context, listKey, operation }) => true,
-      delete: ({ session, context, listKey, operation }) => true,
+      create: args => permissions.canManageProducts(args),
+      update: args => permissions.canManageProducts(args),
+      delete: args => permissions.canManageProducts(args),
     }
+  },
+  ui: {
+    // hide the back end UI from regular users
+    hideCreate: args => !permissions.canManageUsers(args),
+    hideDelete: args => !permissions.canManageUsers(args),
   },
   fields: {
     productType: select({

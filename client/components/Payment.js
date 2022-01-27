@@ -85,7 +85,7 @@ function PaymentForm() {
     >
         {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
         {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
-      <Popover content="Please use: 4242 4242 4242 4242 02/22 222" title="Wait!">
+      <Popover content="Please use the Stripe test card: 4242 4242 4242 4242 02/22 222" title="Wait!">
         <div
           style={{
             background: "white",

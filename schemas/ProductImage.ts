@@ -14,10 +14,18 @@ export const ProductImage = list({
   access: {
     operation: {
       query: ({ session, context, listKey, operation }) => true,
-      create: ({ session, context, listKey, operation }) => true,
-      update: ({ session, context, listKey, operation }) => true,
-      delete: ({ session, context, listKey, operation }) => true,
+      create: args => !permissions.canManageProducts(args),
+      update: args => !permissions.canManageProducts(args),
+      delete: args => !permissions.canManageProducts(args),
     }
+  },
+  ui: {
+    // hide the back end UI from regular users
+    hideCreate: args => !permissions.canManageUsers(args),
+    hideDelete: args => !permissions.canManageUsers(args),
+    listView: {
+      initialColumns: ['image', 'altText', 'product'],
+    },
   },
   fields: {
     image: cloudinaryImage({
@@ -26,10 +34,5 @@ export const ProductImage = list({
     }),
     altText: text(),
     product: relationship({ ref: 'Product.photos' }),
-  },
-  ui: {
-    listView: {
-      initialColumns: ['image', 'altText', 'product'],
-    },
   },
 });
