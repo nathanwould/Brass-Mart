@@ -15,7 +15,6 @@ const SIGN_IN_MUTATION = gql`
       email: $email, 
       password: $password) {
       ... on UserAuthenticationWithPasswordSuccess {
-        sessionToken,
         item {
           id
           email

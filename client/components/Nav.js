@@ -70,7 +70,7 @@ export default function Nav({ Layout }) {
               <span style={{
                 padding: '.2rem',
                 marginLeft: ".5rem",
-                boxShadow: 'none'
+                
               }}>
                 {user.cartCount}
               </span>
