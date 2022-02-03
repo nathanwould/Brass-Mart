@@ -15,8 +15,8 @@ export const Product = list({
   },
   ui: {
     // hide the back end UI from regular users
-    hideCreate: args => !permissions.canManageUsers(args),
-    hideDelete: args => !permissions.canManageUsers(args),
+    // hideCreate: args => !permissions.canManageUsers(args),
+    // hideDelete: args => !permissions.canManageUsers(args),
   },
   fields: {
     productType: select({

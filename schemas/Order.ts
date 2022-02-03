@@ -9,9 +9,9 @@ export const Order = list({
   access: {
     operation: {
       query: ({ session, context, listKey, operation }) => true,
-      create: args => !permissions.canManageProducts(args),
-      update: args => !permissions.canManageProducts(args),
-      delete: args => !permissions.canManageProducts(args),
+      create: args => permissions.canManageOrders(args),
+      update: args => permissions.canManageOrders(args),
+      delete: args => permissions.canManageOrders(args),
     }
   },
   ui: {

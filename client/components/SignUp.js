@@ -1,11 +1,11 @@
 import { useMutation } from "@apollo/client";
 import { gql } from "graphql-tag";
-import { Button, Form, Input } from 'antd';
-import { CURRENT_USER_QUERY } from "./User";
+import { Button, Form, Input, Typography } from 'antd';
+import { CURRENT_USER_QUERY, useUser } from "./User";
 import React from "react";
 import { UserOutlined, MailOutlined, LockOutlined } from '@ant-design/icons';
 
-const SIGN_UP_MUTATION = gql`
+export const SIGN_UP_MUTATION = gql`
   mutation SIGN_UP_MUTATION(
     $name: String!,
     $email: String!,
@@ -21,10 +21,12 @@ const SIGN_UP_MUTATION = gql`
 
 export default function SignUp() {
   const formRef = React.createRef();
+  const Title = Typography;
   const [signup, { data, loading }] = useMutation(SIGN_UP_MUTATION);
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
-  }
+  };
+  const user = useUser();
   return (
     <div className="form-div"
       style={{
@@ -35,7 +37,9 @@ export default function SignUp() {
         alignItems: "center",
       }}
     >
-      <h2>Sign Up</h2>
+      {!user ? <h2>Sign Up</h2>
+        : <h2>Welcome, {user.name}</h2>
+      }
       <Form
         ref={formRef}
         size="middle"
@@ -55,7 +59,6 @@ export default function SignUp() {
           textAlign: 'center'
         }}
       >
-        {/* <Form.Item>{error}</Form.Item> */}
         <Form.Item
           name="name"
           rules={[
@@ -70,6 +73,7 @@ export default function SignUp() {
             type="name"
             placeholder="Your Name"
             autoComplete="name"
+            disabled={user}
           />
         </Form.Item>
         <Form.Item
@@ -86,6 +90,7 @@ export default function SignUp() {
             type="email"
             placeholder="Your Email Address"
             autoComplete="email"
+            disabled={user}
           />
         </Form.Item>
         <Form.Item
@@ -102,6 +107,7 @@ export default function SignUp() {
             type="password"
             placeholder="Password"
             autoComplete="password"
+            disabled={user}
           />
         </Form.Item>
         <Form.Item>
@@ -109,11 +115,14 @@ export default function SignUp() {
             type="primary"
             htmlType="submit"
             className="login-form-button"
+            data-testid="sign-up-button"
+            disabled={user}
             style={{
               width: "100%"
             }}
           >
-            Sign Up
+            {user ? <span>Signed In!</span>
+              : <span>Sign Up</span>}
           </Button>
           Or <a href="signin">Sign In</a>
         </Form.Item>

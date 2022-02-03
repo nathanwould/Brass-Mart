@@ -11,11 +11,11 @@ export const permissionFields = {
   }),
   canManageUsers: checkbox({
     defaultValue: false,
-    label: 'User can Edit other users',
+    label: 'User can manage other users',
   }),
   canManageRoles: checkbox({
     defaultValue: false,
-    label: 'User can CRUD roles',
+    label: 'User can manage roles',
   }),
   canManageCart: checkbox({
     defaultValue: false,
