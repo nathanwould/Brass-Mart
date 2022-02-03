@@ -6,7 +6,7 @@ A demo webstore built with a Keystone.js GraphQL database, Next.js front-end and
 - [MVP](#mvp)
   - [Goals](#goals)
   - [Libraries and Dependencies](#libraries-and-dependencies)
-  - [Server (Back End)](#server-back-end)
+  - [Database (Back End)](#database-back-end)
     - [Approach](#approach)  
     - [ERD Model](#erd-model)
   - [Client (Front End)](#client-front-end)
@@ -55,7 +55,7 @@ _**Brass Mart** MVP will be a fully functioning webstore that will allow users t
 
 ### Database (Back End)
 
->Take a look here: https://rocky-plains-31371.herokuapp.com/
+>Take a look here after making an account through the front end: https://brass-mart-db.herokuapp.com/
 
 #### Approach
 
@@ -129,4 +129,5 @@ For my project's front end my goal was to design a clean, minimal application th
 
 > Resolved:
 > Issue: Completed project v1 was functioning as it should in development, but after deployment there has been an issue with the request headers not being properly sent between the client and database. The signin mutation is receiving a success code but the user is missing from the returned headers.
+> <br>
 > Resolution: changed sameSite cookie policy to 'none'.
