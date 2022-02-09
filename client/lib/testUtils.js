@@ -5,19 +5,19 @@ casual.seed(777);
 const fakeProduct = () => ({
   id: 'abc123',
   price: 50000,
-  name: 'Product',
+  name: 'The Sickest Trombone',
   make: 'Huffy',
   model: 'Big Boy',
   productType: 'instrument',
   category: 'trombone',
   description: 'A wicked sick product!',
-  photo: {
+  photos: [{
     id: 123,
     altText: 'a wicked sick product',
     image: {
       publicUrlTransformed: 'product.jpg',
     },
-  },
+  }],
   status: 'IN-STOCK',
 });
 
@@ -31,6 +31,15 @@ const fakeUser = (overrides) => ({
   cartCount: 2,
   ...overrides,
 });
+
+const fakeCartItem = (overrides) => ({
+  __typename: 'CartItem',
+  id: '123456',
+  product: fakeProduct(),
+  quantity: 1,
+  user: fakeUser(),
+  ...overrides,
+})
 
 // Fake LocalStorage
 class LocalStorageMock {
@@ -58,5 +67,6 @@ class LocalStorageMock {
 export {
   fakeProduct,
   fakeUser,
+  fakeCartItem,
   LocalStorageMock
 };

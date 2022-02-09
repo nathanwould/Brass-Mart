@@ -1,32 +1,14 @@
-import { Button, Menu, Typography } from 'antd';
+import { Button, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { CURRENT_USER_QUERY, useUser } from './User.js';
-import { gql } from "graphql-tag";
-// import { useMutation } from "@apollo/client";
+import { useUser } from './User.js';
 import { useCart } from "../lib/cartState.js";
 import Link from 'next/link';
 import { SignOut } from './SignOut';
-
-// const SIGN_OUT_MUTATION = gql`
-//   mutation {
-//     endSession
-//   }
-// `;
 
 export default function Nav({ Layout }) {
   const user = useUser();
   const { openCart } = useCart();
   const { SubMenu } = Menu;
-  // const { Link } = Typography;
-  // const [signout] = useMutation(SIGN_OUT_MUTATION, {
-  //   refetchQueries: [{ query: CURRENT_USER_QUERY }],
-  // },
-  // );
-  // let cartCount = user?.cart?.reduce(
-  //   (tally, cartItem) =>
-  //     tally + (cartItem.product ? cartItem.quantity : 0),
-  //   0
-  // )
   return (
     <Menu mode="horizontal">
       <Menu.Item key='home' className="logo">
@@ -78,7 +60,6 @@ export default function Nav({ Layout }) {
           </Menu.Item>
           <Menu.Item key="sign-out-button">
             <SignOut />
-            {/* Sign Out */}
           </Menu.Item>
         </>
       )}

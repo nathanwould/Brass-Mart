@@ -24,13 +24,16 @@ export default function AddToCart({ id }) {
         {added ?
           <Button
             disabled
-            type="button">
+            type="button"
+            data-testid={id}
+          >
             Added To Cart
           </Button>
           : <Button
             type="button"
             onClick={addToCart}
-            id={id}>
+            data-testid={id}
+          >
             {`Add${loading ? 'ing' : ''} To Cart 🛒`}
           </Button>
         }
@@ -41,8 +44,9 @@ export default function AddToCart({ id }) {
     return (
       <>
         <a
-          class="ant-btn ant-btn-button"
+          className="ant-btn ant-btn-button"
           href="/signin"
+          data-testid='sign-in'
         >
           Add To Cart 🛒
         </a>
